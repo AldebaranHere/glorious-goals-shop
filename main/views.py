@@ -3,9 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 def show_main(request):
     context = {
-        'npm' : '240123456',
-        'name': 'Haru Urara',
-        'class': 'PBP A'
+        'npm' : '2406365370',
+        'name': 'Aldebaran Rahman Adhitya',
+        'class': 'PBP KKI'
     }
 
     return render(request, "main.html", context)
