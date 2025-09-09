@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-def show_details(request):
+def show_main(request):
     context = {
         'application_name' : 'Glorious Goals Shop',
         'name': 'Aldebaran Rahman Adhitya',
