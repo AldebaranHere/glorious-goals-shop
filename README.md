@@ -1,6 +1,6 @@
 [Link to the website](https://aldebaran-rahman-gloriousgoalsshop.pbp.cs.ui.ac.id/)
 
-Explain how you implemented the checklist above step-by-step (not just by following the tutorial).
+## H2 Explain how you implemented the checklist above step-by-step (not just by following the tutorial).
 
 Answer:
 1. Creating a new Django project
@@ -25,7 +25,7 @@ After writing code, managing logic, and managing how the information should be s
 
 
 
-Create a diagram showing the client request to the Django-based web application and its response, and explain the relationship between urls.py, views.py, models.py, and the HTML file in the diagram.
+## H2 Create a diagram showing the client request to the Django-based web application and its response, and explain the relationship between urls.py, views.py, models.py, and the HTML file in the diagram.
 
 Answer:
 ![MVT/MTV Diagram](basic-django.png)
@@ -36,21 +36,21 @@ urls.py, views.py, models.py, and HTML file(s) work together as a system in orde
 
 
 
-Explain the role of settings.py in a Django project!
+## H2 Explain the role of settings.py in a Django project!
 
 Answer:
 For me, one description that works best in understanding the settings.py file in Django is that it is analogous to the settings on a mobile phone. The settings of a mobile phone can set the brightness of the phone, set how notifications should be displayed, set the phone is on silent mode, set the phone is on airplane mode, set it to use mobile data, and much more. The settings.py file in a Django project behaves similarly because, for example, allowed hosts can be edited so that it contains more host or domain names, time zone could be set to 'UTC', the language code can be set to 'en-us', and more. From these examples, I think that the role of the settings.py file  in a Django project allows Django developers to configure how their project should work and/or behave such that it aligns with their goals.
 
 
 
-How does database migration work in Django?
+## H2 How does database migration work in Django?
 
 Answer:
 From what I understand, a Django model is a representation of a database table in Python. Migrations is how Django tracks any changes made to its database models. Specifically, migrations are orders to change the structure of the database table which is defined in the latest code for the model. In Django, "python manage.py makemigrations" and "python manage.py migrate" are two commands that must run in order so that a database migration can work. The command "python manage.py makemigrations" is usually used after a model has been changed and is used to create migrations for those changes. However, this does not apply the changes made to the database. To apply the changes made to the database, the command "python manage.py migrate" should be used. At its core, database migrations in Django work by using two commands that must be run sequentially where "python manage.py makemigrations" creates migration files based on the changes made to the model and "python manage.py migrate" applies the migration files to the database which updates its schema.
 
 
 
-In your opinion, among all existing frameworks, why is the Django framework chosen as the starting point for learning software development?
+ ## H2 In your opinion, among all existing frameworks, why is the Django framework chosen as the starting point for learning software development?
 
 Answer:
 There many frameworks for software development. However, I think the main reason as to why
@@ -58,7 +58,7 @@ Django is chosen is the same reason a beginner would first learn programming. Ba
 
 
 
-Do you have any feedback for the teaching assistant for Tutorial 1 that you previously completed?
+## H2 Do you have any feedback for the teaching assistant for Tutorial 1 that you previously completed?
 
 Answer:
 I think my teaching assistant during tutorial 1 was great! He is quite communicative and he responds to my questions nicely. Thank you!
