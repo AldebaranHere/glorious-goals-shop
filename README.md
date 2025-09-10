@@ -4,18 +4,23 @@ Explain how you implemented the checklist above step-by-step (not just by follow
 
 Answer:
 1. Creating a new Django project
+
 In this step, I created a new Django project. This is where I had to work with Windows Powershell and Git. One part of this step was to create an application "main" in the project. I then configured the routing in the project to run the "main" application by adding urlpatterns = [path('', show_main, name='show_main'),] in urls.py in the "main" directory.
 
 2. Creating a new model
+
 After creating a new Django project, I continued by creating a new model named "Product" with "name", "price", "description", "thumbnail", "category", and "is_featured" as mandatory attributes as well as "id", "stock", and "rating" as optional attributes. After this, I ran "python manage.py makemigrations" and "python manage.py migrate" to apply the model.
 
 3. Creating a function in views.py
+
 After creating a new model, I went on to create a function in views.py to return a page that displays the name of the application, my name, and my class. This part (views.py) can be thought as the step in which the logic of the website is written.
 
 4. Creating a template
+
 The file views.py should return a page that displays information. To actually display the information, I had to create an HTML file (main.html) to organise how the information should be displayed whenever someone accesses my website. If views.py manages what should be shown, then the template manages how it should be shown.
 
 5. Deploying to Pacil Web Service (PWS)
+
 After writing code, managing logic, and managing how the information should be shown on the website, I deployed my project to Pacil Web Service. This step is important because it allows other people to access my website.
 
 
