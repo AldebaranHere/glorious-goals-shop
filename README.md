@@ -24,7 +24,7 @@ Create a diagram showing the client request to the Django-based web application 
 Answer:
 ![MVT/MTV Diagram](basic-django.png)
 
-[Link to source:](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django/Home_page)
+[Link to source which contains the image above](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django/Home_page)
 
 urls.py, views.py, models.py, and HTML file(s) work together as a system in order to show a Django-based website. First of all, when the website receives an HTTP request from a user, it is given to urls.py and urls.py sends that request to the correct part in views.py. Depending on the request, views.py can read data from models.py or write data to models.py. The HTML file(s) work with views.py in order to put information on a page. That page is then forwarded to the user based on their initial request. Overall, urls.py, views.py, models.py, and HTML(s) coordinate with each other to receive HTTP requests from users and respond accordingly to those requests.
 
