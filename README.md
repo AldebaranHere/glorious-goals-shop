@@ -100,10 +100,14 @@ I think tutorial 2 was good. In my opinion, the teaching assistants were quite k
 
 ## Postman Screenshots for point 2
 
+XML
 ![XML](XML_Assignment_3.png)
 
+JSON
 ![JSON](JSON_Assignment_3.png)
 
+XML by ID (Jersey)
 ![XML by ID (Jersey)](XML_ID_Assignment_3.png)
 
+JSON by ID (Jersey)
 ![JSON by ID (Jersey)](JSON_ID_Assignment_3.png)
