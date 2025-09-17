@@ -91,7 +91,7 @@ Forms in Django handle data which is inputted by the user. Sometimes, the data g
 
 3. To continue with the assignment, I also added four (4) views functions to view objects added by the user in XML, JSON, XML by ID, and JSON by ID. This results in me editing views.py by adding show_xml, show_json, show_xml_by_id, and show_json_by_id as functions. I also had to edit the urls.py file so that the urls of the website can call the correct functions in views.
 
-4. 
+4. I also added the screenshots for Postman
 
 
 ## Do you have any feedback for the teaching assistants for Tutorial 2?
