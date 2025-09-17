@@ -1,3 +1,5 @@
+# Assignment 2
+
 [Link to the website](https://aldebaran-rahman-gloriousgoalsshop.pbp.cs.ui.ac.id/)
 
 ## Explain how you implemented the checklist above step-by-step (not just by following the tutorial).
@@ -56,3 +58,37 @@ Django is chosen is the same reason a beginner would first learn programming. Ba
 ## Do you have any feedback for the teaching assistant for Tutorial 1 that you previously completed?
 
 I think my teaching assistant during tutorial 1 was great! He is quite communicative and he responds to my questions nicely. Thank you!
+
+# Assignment 3
+
+## Why do we need data delivery in implementing a platform?
+
+
+
+## In your opinion, which is better, XML or JSON? Why is JSON more popular than XML?
+
+From my perspective, I prefer JSON a lot more than XML. As someone who has had experience with Python, I can read the syntax for JSON much more easily than XML because it is much less verbose. I also find that JSON is much more concise than XML because data is stored in key-value pairs which is similar to how dictionaries work in Python. XML's syntax is much more similar to HTML and, in my experience, HTML repeats keywords (for example: <p>This is some text</p> (p is repeated)) which makes it more difficult to read.
+
+As to why JSON is much more popular than XML, I think it's because most web applications are based on HTML, CSS, and JavaScript. These three things make up a majority of websites. When many websites use JavaScript, then a format that works reliably, quickly, and easily with JavaScript is needed. Between JSON and XML, JSON fits this demand. Therefore, JSON becomes the preferred format in web development.
+
+
+## What is the purpose of the is_valid() method in Django forms, and why do we need it?
+
+
+
+
+
+## Why do we need a csrf_token when making forms in Django? What can happen if we don't include a csrf_token in a Django form? How can this be exploited by an attacker?
+
+
+
+
+
+## Explain how you implemented the checklist above step-by-step (not just following the tutorial).
+
+
+
+
+## Do you have any feedback for the teaching assistants for Tutorial 2?
+
+I think tutorial 2 was good. In my opinion, the teaching assistants were quite kind and helpful. Thank you!
