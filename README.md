@@ -102,8 +102,8 @@ I think tutorial 2 was good. In my opinion, the teaching assistants were quite k
 
 ![XML](XML_Assignment_3.png)
 
-![JSON](JSON_Assignment_3)
+![JSON](JSON_Assignment_3.png)
 
 ![XML by ID (Jersey)](XML_ID_Assignment_3.png)
 
-![JSON by ID (Jersey)](JSON_ID_Assignment_3)
+![JSON by ID (Jersey)](JSON_ID_Assignment_3.png)
