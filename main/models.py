@@ -1,7 +1,7 @@
 # Create your models here.
 import uuid
 from django.db import models
-    
+
 class Product(models.Model):
 
     CATEGORY_CHOICES = [

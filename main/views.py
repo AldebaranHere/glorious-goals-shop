@@ -12,7 +12,7 @@ def show_main(request):
         'name': 'Aldebaran Rahman Adhitya',
         'npm': "2406365370",
         'class': 'PBP KKI',
-        'products_list': products_list
+        'products_list': products_list,
     }
 
     return render(request, "main.html", context)
