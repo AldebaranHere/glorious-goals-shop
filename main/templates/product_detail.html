@@ -19,4 +19,10 @@
 <p>Stock: {{ product.stock }}</p>
 <p>Rating: {{ product.rating }}</p>
 
+{% if product.user %}
+    <p>Author: {{ product.user.username }}</p>
+{% else %}
+    <p>Author: Aldebaran (Student/Developer)</p>
+{% endif %}
+
 {% endblock content %}
