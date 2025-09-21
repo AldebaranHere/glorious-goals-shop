@@ -111,3 +111,28 @@ XML by ID (Jersey)
 
 JSON by ID (Jersey)
 ![JSON by ID (Jersey)](JSON_ID_Assignment_3.png)
+
+# Assignment 4
+
+## What is Django's AuthenticationForm? Explain its advantages and disadvantages.
+
+
+
+
+## What is the difference between authentication and authorization? How does Django implement the two concepts?
+
+
+
+
+## What are the benefits and drawbacks of using sessions and cookies in storing the state of a web application?
+
+
+
+
+## In web development, is the usage of cookies secure by default, or is there any potential risk that we should be aware of? How does Django handle this problem?
+
+
+
+
+## Explain how you implemented the checklist above step-by-step (not just following the tutorial).
+
