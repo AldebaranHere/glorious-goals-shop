@@ -116,23 +116,41 @@ JSON by ID (Jersey)
 
 ## What is Django's AuthenticationForm? Explain its advantages and disadvantages.
 
-
+According to [1], AuthenticationForm is a form to log a user in. The advantage of AuthenticationForm in Django is that it has documentation (which can be accessed here: https://docs.djangoproject.com/en/5.2/topics/auth/default/#django.contrib.auth.forms.AuthenticationForm) and the link to the source code is available here: https://github.com/django/django/blob/stable/5.2.x/django/contrib/auth/forms.py#L322. However, this can introduce a disadvantage where attackers can try to study about the code and find a weakness in order to get unauthorized access to sensitive resources.
 
 
 ## What is the difference between authentication and authorization? How does Django implement the two concepts?
 
-
+I think the best way to differentiate authentication and authorization is that they answer two different questions. Authentication specifically asks "Who is this user?" while authorization asks "What resources/services can this user access?" For example, on a social media platform, authentication can answer which user is an individuals and which user is a company whereas authorization can answer what actions users can do and prevent users from having privileges they are not supposed to have. From [3] and [4], Django implements authentication and authorization by providing a user authentication system which can handle user accounts, groups, permissions, and cookie-based sessions.
 
 
 ## What are the benefits and drawbacks of using sessions and cookies in storing the state of a web application?
 
-
+The main benefit of sessions is that it allows servers to recall and remember requests of users, even if many users were to all access those servers and cookies can be used to authenticate users and maintain user preference as well as to track users. In the case for cookies, sessions cookies cannot track long-term information but persistent cookies can track long-term information. From [6], to implement sessions, ServerSide programming should be used and ClientSide programming should be used to implement cookies. Server sessions and cookies work together to keep the session alive so servers would know if the user is logged in and what data belongs to them. However, these benefits also introduce drawbacks. One drawback is attackers can try to utilise session forgery (also known as cross site request forgery) to perform malicious actions using a user's creditials (paraphrased from [7]). From [6], another drawback is, in the case for persistent cookies, is that it is less secure than session cookies because it is stored in a file on the browser's computer which allows for users or programs to open cookie files.
 
 
 ## In web development, is the usage of cookies secure by default, or is there any potential risk that we should be aware of? How does Django handle this problem?
 
-
+The usage of cookies vary from case to case. There are session cookies and persistent cookies. A session cookie is temporary, meaning that it does not last for long. This is because session cookies are stored in browser memory and are erased when the browser is closed. Session cookies cannot be used to track long-term information and thus is safer than persistent cookies. As for persistent cookies, these are stored in a file on the computer of the browser and they can track long-term information. However, storing cookies in a file enables a less secure environment since other users and/or programs can open that file. The insecurity that persistent cookies introduce is a risk that developers should be aware of. To mitigate/handle this risk, Django recommends to set SESSION_COOKIE_SECURE and CSRF_COOKIE_SECURE settings to True (based on [2]). This orders the browser to only send cookies through HTTPS connections (which are more secure than HTTP connections).
 
 
 ## Explain how you implemented the checklist above step-by-step (not just following the tutorial).
 
+1. First of all, I had to code the register, login, and logout functions in views.py. After that, I had to code the HTML pages for the register and login page, which are register.html and login.html. As for the logout function, I redirected users to go to login.html when they logout. To connect both the new functions in views.py and their respective HTML pages, I configured the URL routings in urls.py so that each of the new functions call the right HTML pages. 
+
+2. After finishing the functions, I continued by connecting the Product model with the User model. To ensure the changes have been made, I ran python manage.py makemigrations and python manage.py migrate. 
+
+3. I continued to edit the main.html file so that every user can see that they are logged in by showing "You are currently logged in as: {{insert_username}}" after they login to the website.
+
+4. To make sure the code works, I created two accounts on localhost and added products on both accounts to see if the features worked and to see if, by clicking on the "My Products" button, the users would only be able to see the products they added (and not see the products added by other users).
+
+
+# Sources
+
+[1]: https://docs.djangoproject.com/en/5.2/topics/auth/default/#django.contrib.auth.forms.AuthenticationForm
+[2]: https://docs.djangoproject.com/en/5.2/topics/security/#ssl-https
+[3]: https://docs.djangoproject.com/en/5.2/topics/auth/
+[4]: https://docs.djangoproject.com/en/5.2/topics/auth/default/
+[5]: https://supertokens.com/blog/django-user-authentication#advantages-of-using-django-authentication
+[6]: 05-Form, Authentication, Session, and Cookie (slide from SCeLE)
+[7]: https://developer.mozilla.org/en-US/docs/Web/Security/Attacks
