@@ -148,9 +148,15 @@ The usage of cookies vary from case to case. There are session cookies and persi
 # Sources
 
 1: https://docs.djangoproject.com/en/5.2/topics/auth/default/#django.contrib.auth.forms.AuthenticationForm
+
 2: https://docs.djangoproject.com/en/5.2/topics/security/#ssl-https
+
 3: https://docs.djangoproject.com/en/5.2/topics/auth/
+
 4: https://docs.djangoproject.com/en/5.2/topics/auth/default/
+
 5: https://supertokens.com/blog/django-user-authentication#advantages-of-using-django-authentication
+
 6: 05-Form, Authentication, Session, and Cookie (slide from SCeLE)
+
 7: https://developer.mozilla.org/en-US/docs/Web/Security/Attacks
