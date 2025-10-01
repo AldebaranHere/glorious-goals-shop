@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block meta %}
-<title>Create products - Glorious Goals Shop</title>
+<title>Edit product - Glorious Goals Shop</title>
 {% endblock meta %}
 
 {% block content %}
@@ -10,15 +12,15 @@
     <!-- Back Navigation -->
     <div class="mb-6">
       <a href="{% url 'main:show_main' %}" class="text-gray-600 hover:text-gray-900 font-medium transition-colors">
-        ← Back to main page
+        ← Back to product
       </a>
     </div>
     
     <!-- Form -->
     <div class="bg-sky-100 rounded-lg border border-gray-200 p-6 sm:p-8 form-style">
       <div class="mb-8">
-        <h1 class="text-2xl font-bold text-gray-900 mb-2">Create New Products</h1>
-        <p class="text-gray-600">Add a product to Glorious Goals Shop!</p>
+        <h1 class="text-2xl font-bold text-gray-900 mb-2">Edit product</h1>
+        <p class="text-gray-600">Update your Glorious Goals Shop and stories</p>
       </div>
       
       <form method="POST" class="space-y-6">
@@ -45,7 +47,7 @@
             Cancel
           </a>
           <button type="submit" class="order-1 sm:order-2 flex-1 bg-blue-500 text-sky-100 px-6 py-3 rounded-md font-medium hover:bg-green-700 transition-colors">
-            Publish product
+            Update product
           </button>
         </div>
       </form>

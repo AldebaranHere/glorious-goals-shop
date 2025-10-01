@@ -144,6 +144,49 @@ The usage of cookies vary from case to case. There are session cookies and persi
 
 4. To make sure the code works, I created two accounts on localhost and added products on both accounts to see if the features worked and to see if, by clicking on the "My Products" button, the users would only be able to see the products they added (and not see the products added by other users).
 
+# Assignment 5
+
+## CSS Selector Priority: If multiple CSS selectors target an HTML element, explain the priority order for CSS selector selection
+
+In CSS Selector Priority, there is an order to which attribute priority is chosen, which is:
+
+1. Origin and importance
+2. Selector specificity
+3. Order of appearance
+4. Initial and inherited properties
+
+Here, the highest priority (from 1 to 4) is chosen. This means that if the conflict resolves at origin and importance, then the CSS selector will be based on the origin and importance. If origin and importance does not resolve the issue, then we continue to selector specificity. If selector specificity does not resolve the issue, then we continue to order of appearance. If order of appearance does not resolve the issue, then we continue to initial and inherited properties.
+
+## Responsive Design:
+### Why is responsive design important in web application development?
+
+Responsive design is crucial in web application development because users expect responses to their requests. Without responsive design, users will have a difficult time in navigating web applications and move to other web applications which are responsive.
+
+### Provide examples of applications that have and haven't implemented responsive design
+
+Examples of applications that have implemented responsive design are Instagram, YouTube, and Threads whereas examples of applications that have not implemented responsive web design are usually static HTML websites which do not have content="width=device-width, initial-scale=1.0" 
+
+### Explain the reasons behind your examples
+
+The examples I mentioned are mostly social media websites and social media involves a lot of human interaction. Because of this, interactivity and responsiveness is important in becoming a popular social media website. In contrast, static HTML websites that do not have content="width=device-width, initial-scale=1.0" are not responsive because it does not adapt to the device of the user.
+
+## Box Model: Explain the differences between margin, border, and padding, and how to implement them
+
+A CSS box model is basically a box that wraps around every HTML element. Every box model has content, padding, border, and margin. Margin clears an area outside of the border and is transparent. Padding is similar to margin but padding clears an area around the content. Border separates padding and margin. To implement a box model, we can use div in HTML and edit it.
+
+## Layout Systems: Explain the concepts of flexbox and grid layout along with their uses
+
+CSS Flexbox is a layout method for ordering items in rows or columns whereas CSS Grid is used for rows and columns [8]. The difference in use cases for CSS Flexbox and CSS Grid comes down to one question: do you want your layout to be one-dimensional or two-dimensional? If you want your layout to be one-dimensional, use CSS Flexbox. If you want your layout to be two-dimensional, use CSS Grid.
+
+## Implementation Steps: Explain how you implemented the above checklist step-by-step (not just following the tutorial)
+
+1. I started this assignment by adding an edit button and a delete button to my website. (For this assignment, I chose to Tailwind)
+
+2. After this, I continued to modify the URL routing and add a new HTML page is which card_product.html.
+
+3. I continued to add a navigation bar for the website and I configured static files in settings.py.
+
+4. After this, the core HTML pages of the website should work. At this point, it lacks style, so I continued to use CSS to make my HTML website look better. I then continued to style the HTML pages of my website so it looks better for the users.
 
 # Sources
 
@@ -160,3 +203,5 @@ The usage of cookies vary from case to case. There are session cookies and persi
 6: 05-Form, Authentication, Session, and Cookie (slide from SCeLE)
 
 7: https://developer.mozilla.org/en-US/docs/Web/Security/Attacks
+
+8. https://www.w3schools.com/css/css3_flexbox.asp
