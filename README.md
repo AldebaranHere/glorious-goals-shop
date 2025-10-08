@@ -59,6 +59,7 @@ Django is chosen is the same reason a beginner would first learn programming. Ba
 
 I think my teaching assistant during tutorial 1 was great! He is quite communicative and he responds to my questions nicely. Thank you!
 
+
 # Assignment 3
 
 ## Why do we need data delivery in implementing a platform?
@@ -112,6 +113,7 @@ XML by ID (Jersey)
 JSON by ID (Jersey)
 ![JSON by ID (Jersey)](JSON_ID_Assignment_3.png)
 
+
 # Assignment 4
 
 ## What is Django's AuthenticationForm? Explain its advantages and disadvantages.
@@ -143,6 +145,7 @@ The usage of cookies vary from case to case. There are session cookies and persi
 3. I continued to edit the main.html file so that every user can see that they are logged in by showing "You are currently logged in as: {{insert_username}}" after they login to the website.
 
 4. To make sure the code works, I created two accounts on localhost and added products on both accounts to see if the features worked and to see if, by clicking on the "My Products" button, the users would only be able to see the products they added (and not see the products added by other users).
+
 
 # Assignment 5
 
@@ -188,6 +191,34 @@ CSS Flexbox is a layout method for ordering items in rows or columns whereas CSS
 
 4. After this, the core HTML pages of the website should work. At this point, it lacks style, so I continued to use CSS to make my HTML website look better. I then continued to style the HTML pages of my website so it looks better for the users.
 
+
+## Assignment 6
+
+# What is the difference between synchronous request and asynchronous request?
+
+I think the key difference between synchronous requests and asynchronous requests is that synchronous requests prevent the DOM or browser from executing following codes until the server responds whereas asynchronous requests will let the DOM or browser execute requests simultaneously. [9]
+
+
+# How does AJAX work in Django (request–response flow)?
+
+Django is server-side while AJAX is client-side. In general, a request or call is made to the website and then AJAX does it. If the request is successful, then AJAX will retrieve data relevant to the request. However, if the request fails, AJAX will execute a different function. [10]
+
+
+# What are the advantages of using AJAX compared to regular rendering in Django?
+
+Django is actually synchronous and AJAX is asynchrounous. AJAX brings benefits such as improving performance, speeding up response times, enabling asynchronous calls and more. [12]
+
+
+# How do you ensure security when using AJAX for Login and Register features in Django?
+
+In Django, ensuring security can be done by adding csrf_token. Other than that, developers should also be aware of common HTTP status codes so they write the correct status code in AJAX so that AJAX performs the correct logic.
+
+
+# How does AJAX affect user experience (UX) on websites?
+
+The benefit of AJAX in terms of user experience on websites is that AJAX allows website to update parts of a page without having to refresh the whole page.
+
+
 # Sources
 
 1: https://docs.djangoproject.com/en/5.2/topics/auth/default/#django.contrib.auth.forms.AuthenticationForm
@@ -204,4 +235,10 @@ CSS Flexbox is a layout method for ordering items in rows or columns whereas CSS
 
 7: https://developer.mozilla.org/en-US/docs/Web/Security/Attacks
 
-8. https://www.w3schools.com/css/css3_flexbox.asp
+8: https://www.w3schools.com/css/css3_flexbox.asp
+
+9: https://www.geeksforgeeks.org/jquery/difference-between-synchronous-and-asynchronous-requests-in-jquery-ajax/
+
+10: https://stackoverflow.com/questions/20306981/how-do-i-integrate-ajax-with-django-applications
+
+11: https://www.mageplaza.com/blog/advantages-and-disadvantages-of-ajax.html
