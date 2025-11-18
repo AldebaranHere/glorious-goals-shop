@@ -13,6 +13,7 @@ from django.urls import reverse
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.html import strip_tags
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 # Assignment 2
@@ -65,8 +66,23 @@ def show_xml(request):
 
 def show_json(request):
     products_list = Product.objects.all()
-    json_data = serializers.serialize("json", products_list)
-    return HttpResponse(json_data, content_type="application/json")
+    data = [
+        {
+            'id': str(product.id),
+            'name': product.name,
+            'price': product.price,
+            'description': product.description,
+            'thumbnail': product.thumbnail,
+            'category': product.category,
+            'is_featured': product.is_featured,
+            'stock': product.stock,
+            'rating': product.rating,
+            'user_id': product.user_id,
+        }
+        for product in products_list
+    ]
+
+    return JsonResponse(data, safe=False)
 
 def show_xml_by_id(request, product_id):
     try:
@@ -78,11 +94,22 @@ def show_xml_by_id(request, product_id):
 
 def show_json_by_id(request, product_id):
     try:
-        news_item = Product.objects.get(pk=product_id)
-        json_data = serializers.serialize("json", [news_item])
-        return HttpResponse(json_data, content_type="application/json")
+        product = Product.objects.select_related('user').get(pk=product_id)
+        data = {
+            'id': str(product.id),
+            'name': product.name,
+            'price': product.price,
+            'description': product.description,
+            'thumbnail': product.thumbnail,
+            'category': product.category,
+            'is_featured': product.is_featured,
+            'stock': product.stock,
+            'rating': product.rating,
+            'user_id': product.user_id,
+        }
+        return JsonResponse(data)
     except Product.DoesNotExist:
-        return HttpResponse(status=404)
+        return JsonResponse({'detail': 'Not found'}, status=404)
 
 # Assignment 4    
 def register(request):
@@ -121,11 +148,19 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+@login_required(login_url='/login')
 def edit_product(request, id):
     product = get_object_or_404(Product, pk=id)
+    
+    # Check if user owns the product
+    if product.user != request.user:
+        messages.error(request, 'You do not have permission to edit this product.')
+        return redirect('main:show_main')
+    
     form = ProductForm(request.POST or None, instance=product)
     if form.is_valid() and request.method == 'POST':
         form.save()
+        messages.success(request, 'Product has been updated successfully.')
         return redirect('main:show_main')
 
     context = {
@@ -136,26 +171,31 @@ def edit_product(request, id):
 
 def delete_product(request, id):
     product = get_object_or_404(Product, pk=id)
-    if request.method == "POST":
-        product.delete()
-        messages.success(request, 'Product has been deleted successfully.')
+    product.delete()
     return HttpResponseRedirect(reverse('main:show_main'))
 
 # Assignment 6
 @csrf_exempt
-def add_product_ajax(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        form = ProductForm(data)
-        if form.is_valid():
-            product_entry = form.save(commit=False)
-            product_entry.user = request.user
-            product_entry.save()
-            return JsonResponse({"message": "Product added successfully!"}, status=201)
-        else:
-            errors = {field: [strip_tags(error) for error in errors] for field, errors in form.errors.items()}
-            return JsonResponse({"errors": errors}, status=400)
-    return JsonResponse({"error": "Invalid request method."}, status=405)
+@require_POST
+def add_product_entry_ajax(request):
+    title = strip_tags(request.POST.get("title")) # strip HTML tags!
+    content = strip_tags(request.POST.get("content")) # strip HTML tags!
+    category = request.POST.get("category")
+    thumbnail = request.POST.get("thumbnail")
+    is_featured = request.POST.get("is_featured") == 'on'  # checkbox handling
+    user = request.user
+
+    new_product = Product(
+        title=title, 
+        content=content,
+        category=category,
+        thumbnail=thumbnail,
+        is_featured=is_featured,
+        user=user
+    )
+    new_product.save()
+
+    return HttpResponse(b"CREATED", status=201)
 
 @csrf_exempt
 def edit_product_ajax(request, id):
@@ -171,35 +211,51 @@ def edit_product_ajax(request, id):
             return JsonResponse({"errors": errors}, status=400)
     return JsonResponse({"error": "Invalid request method."}, status=405)
 
+@csrf_exempt
 def delete_product_ajax(request, id):
-    product = get_object_or_404(Product, pk=id)
+    if not request.user.is_authenticated:
+        return JsonResponse({"status": "error", "message": "Authentication required."}, status=401)
+
     if request.method == "POST":
-        product.delete()
-        return JsonResponse({"message": "Product has been deleted successfully!"}, status=200)
-    return JsonResponse({"error": "Invalid request method."}, status=405)
+        try:
+            product = Product.objects.get(pk=id)
+            product.delete()
+            return JsonResponse({"status": "success", "message": "Product deleted successfully."})
+        except Product.DoesNotExist:
+            return JsonResponse({"status": "error", "message": "Product not found."}, status=404)
+    return JsonResponse({"status": "error", "message": "Invalid request method."}, status=405)
 
-def get_product_json(request):
-    products_list = Product.objects.all()
-    json_data = serializers.serialize("json", products_list)
-    return JsonResponse(json.loads(json_data), safe=False)
+def get_product_json(request, id):
+    product = get_object_or_404(Product, pk=id)
+    data = {
+        "id": product.id,
+        "name": product.name,
+        "price": product.price,
+        "description": product.description,
+        "thumbnail": product.thumbnail,
+        "category": product.category,
+        "stock": product.stock,
+        "rating": product.rating,
+    }
+    return JsonResponse(data)
 
-def show_json(request):
-    products_list = Product.objects.all()
-    json_data = serializers.serialize("json", products_list)
-    return JsonResponse(json.loads(json_data), safe=False)
+# def show_json(request):
+#     products_list = Product.objects.all()
+#     json_data = serializers.serialize("json", products_list)
+#     return JsonResponse(json.loads(json_data), safe=False)
 
 def show_xml(request):
     products_list = Product.objects.all()
     xml_data = serializers.serialize("xml", products_list)
     return HttpResponse(xml_data, content_type="application/xml")
 
-def show_json_by_id(request, product_id):
-    try:
-        news_item = Product.objects.get(pk=product_id)
-        json_data = serializers.serialize("json", [news_item])
-        return JsonResponse(json.loads(json_data), safe=False)
-    except Product.DoesNotExist:
-        return JsonResponse({"error": "Product not found."}, status=404)
+# def show_json_by_id(request, product_id):
+#     try:
+#         news_item = Product.objects.get(pk=product_id)
+#         json_data = serializers.serialize("json", [news_item])
+#         return JsonResponse(json.loads(json_data), safe=False)
+#     except Product.DoesNotExist:
+#         return JsonResponse({"error": "Product not found."}, status=404)
     
 def show_xml_by_id(request, product_id):
     try:
